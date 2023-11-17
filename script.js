@@ -354,7 +354,6 @@ async function fetchHourlyWeatherData(coordinates){
 	
 	const response = await fetch(apiUrl);
   const hourlyData = await response.json();
-	console.log(hourlyData)
 	return hourlyData
 }
 
@@ -418,9 +417,9 @@ function drawHourlyCards(hourlyData){
 		let time = hours;
 	
 		if (i != 0){
-			time + i < 24 ? time : time += i - 24
+			time + i < 24 ? time + i : time += i - 24
 		};
-		dayTimeDiv.textContent = `${time}:00`;
+		dayTimeDiv.textContent = `${time +i}:00`;
 
 		hourlyDiv.appendChild(hourlyWeathercodeDiv)
 		hourlyDiv.appendChild(hourlyTempDiv)
